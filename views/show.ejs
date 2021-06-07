@@ -1,0 +1,21 @@
+<h2><%= match.place_name %></h2>
+
+<h4> At latitude: <%= match.center[0] %></h4>
+
+<h4> At Longitude <%= match.center[1] %></h4>
+
+<%= mapkey %>
+
+<div id='map'></div>
+
+<script>
+  mapboxgl.accessToken = '<%= mapkey %>'
+
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/satellite-v9',
+    center: ['<%= match.center[0] %>', '<%= match.center[1] %>'],
+    zoom: 12
+  })
+
+</script>
